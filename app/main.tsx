@@ -1,8 +1,8 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import Root from './containers/Root'
-import configureStore from './store/configureStore'
-import {loginUserSuccess} from './actions'
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import Root from './containers/Root';
+import configureStore from './store/configureStore';
+import {loginUserSuccess} from './actions';
 
 const target = document.getElementById('app');
 const store = configureStore();

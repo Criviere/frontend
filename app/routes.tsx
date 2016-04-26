@@ -1,7 +1,7 @@
-import * as React from 'react'
-import {Route, IndexRoute} from 'react-router'
-import {requireAuthentication} from './components/authenticated'
-import {App, ControlPanel, Progress, Search, Enroll} from './views'
+import * as React from 'react';
+import {Route, IndexRoute} from 'react-router';
+import {requireAuthentication} from './components/authenticated';
+import {App, ControlPanel, Progress, Search, Enroll} from './views';
 
 export default(
       <Route path="/" component={App}>

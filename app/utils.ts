@@ -1,6 +1,6 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import {Provider} from 'react-redux'
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
 export function createConstants(...constants) {
     return constants.reduce((acc, constant) => {
@@ -23,7 +23,7 @@ export function checkHttpStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
     } else {
-        var error = new Error(response.statusText)
+        var error = new Error(response.statusText);
         //error['response'] = response
         throw error;
     }

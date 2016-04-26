@@ -6,44 +6,44 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ellery/ellery-frontend"
+    "url": "https://github.com/myfiurevamp/frontend"
   },
   "scripts": {
+    "init": "concurrently 'npm install' 'typings install'",
+    "develop": "concurrently 'webpack --watch' 'lite-server'",
     "test": "jest",
     "lite": "lite-server",
-    "watch": "webpack --watch && lite-server",
+    "watch": "webpack --watch",
     "webpack": "webpack"
   },
   "private": true,
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "concurrently": "^2.0.0",
     "css-loader": "^0.23.1",
     "cssnano": "^3.5.2",
+    "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
     "jest": "^0.1.40",
     "postcss-loader": "^0.8.2",
     "precss": "^1.4.0",
     "style-loader": "^0.13.1",
-    "ts-loader": "^0.8.1",
-    "typescript": "^1.8.9",
-    "typings": "^0.7.12",
-    "webpack": "^2.1.0-beta.4"
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1",
+    "webpack": "^1.12.0"
   },
   "dependencies": {
-    "fetch": "^1.0.1",
     "isomorphic-fetch": "^2.2.1",
+    "jsonwebtoken": "^5.7.0",
     "jwt-decode": "^2.0.1",
-    "react": "^15.0.0",
-    "react-bootstrap": "^0.28.5",
-    "react-dom": "^15.0.0",
-    "react-mixin": "^3.0.4",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "react-motion": "^0.4.2",
     "react-redux": "^4.4.2",
     "react-router": "^2.0.1",
-    "react-router-redux": "^4.0.2",
     "recharts": "^0.9.1",
     "redux": "^3.4.0",
-    "redux-router": "^1.0.0-beta8",
     "redux-thunk": "^2.0.1"
   }
 }

@@ -11,7 +11,6 @@ module.exports = {
         path: path.join(__dirname, '/app'),
         filename: '[name].min.js',
     },
-    modules: [path.resolve(__dirname, "app"), "node_modules"],
     descriptionFiles: ["package.json"],
     resolve: {
         extensions: ['', '.ts', '.tsx', '.js']
@@ -19,7 +18,8 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.ts[x]$/,
-            loader: 'ts-loader'
+            loader: 'ts-loader',
+            exclude: /node_modules/
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss-loader')

@@ -10,31 +10,31 @@ class Input extends React.Component<any, any> {
   }
   constructor(props) {
     super(props);
-    this.state = {value: '', focused: false};
+    this.state = { value: '', focused: false };
   }
 
   handleChange = (e) => {
-    this.setState({value: e.target.value});
+    this.setState({ value: e.target.value });
   }
 
   handleFocus = (e) => {
-    var s = Object.assign(this.state, {focused: true})
+    var s = Object.assign(this.state, { focused: true });
     this.setState(s);
   }
 
   handleBlur = (e) => {
-    var s = Object.assign(this.state, {focused: false})
+    var s = Object.assign(this.state, { focused: false });
     this.setState(s);
   }
   render() {
     var labelStyle = {
       opacity: (this.state.value === '' || this.state.focused) ? 1 : 0,
-      transform: (this.state.value !== '') ? 'translate(-125%, -8px)' :'translate(0px, 0px)'
+      transform: (this.state.value !== '') ? 'translate(-125%, -8px)' : 'translate(0px, 0px)'
     };
 
     return (
       <div className={style.input} >
-        <input type={this.props.type} value={this.state.value} onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} style={this.props.style}/>
+        <input type={this.props.type} value={this.state.value} onChange={(e) => { this.props.callback(e); this.handleChange(e) } } onFocus={this.handleFocus} onBlur={this.handleBlur} style={this.props.style}/>
         <label style={labelStyle}>{this.props.placeholder}</label>
         {this.props.children}
       </div>

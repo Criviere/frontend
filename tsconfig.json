@@ -9,8 +9,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitHelpers": false,
-    "sourceMap": true,
-    "jsx": "react"
+    "sourceMap": false,
+    "jsx": "react",
+    "outDir": "build"
   },
   "filesGlob": [
     "./**/*.ts",
@@ -33,7 +34,6 @@
     "./app/reducers/index.ts",
     "./app/utils.ts",
     "./app/views/index.ts",
-    "./machine.ts",
     "./app/components/alerts/index.tsx",
     "./app/components/authenticated/index.tsx",
     "./app/components/button/index.tsx",
@@ -45,7 +45,6 @@
     "./app/components/sidebar-content/index.tsx",
     "./app/components/sidebar/index.tsx",
     "./app/components/tooltip/index.tsx",
-    "./app/containers/app.tsx",
     "./app/containers/root/index.tsx",
     "./app/main.tsx",
     "./app/routes.tsx",

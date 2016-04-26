@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {StaggeredMotion, spring} from 'react-motion'
+var {StaggeredMotion, spring} = require('react-motion');
 import Course from '../../components/course'
 import Button from '../../components/button'
 import Icon from '../../components/icon'

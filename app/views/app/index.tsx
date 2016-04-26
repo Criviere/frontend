@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {Login} from '../login'
-import Sidebar from '../../components/sidebar'
-import SidebarContent from '../../components/sidebar-content'
+import {Login} from '../login';
+import Sidebar from '../../components/sidebar';
+import SidebarContent from '../../components/sidebar-content';
 
 import './style.css';
 
