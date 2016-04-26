@@ -1,7 +1,8 @@
-import { checkHttpStatus, parseJSON } from '../utils';
+import { checkHttpStatus, parseJSON } from './utils';
 import * as jwtDecode from 'jwt-decode';
-
 import fetch from 'isomorphic-fetch';
+
+import env from './env';
 
 export function loginUserSuccess(token) {
   localStorage.setItem('token', token);
@@ -43,17 +44,17 @@ export function logoutAndRedirect() {
     }
 }
 
-export function loginUser(email, password, redirect="/") {
+export function loginUser(username, password, redirect="/home") {
     return function(dispatch) {
         dispatch(loginUserRequest());
-        return fetch('http://localhost:3000/auth/getToken/', {
+        return fetch(`${env}/api/v1/login`, {
             method: 'post',
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-                body: JSON.stringify({email: email, password: password})
+                body: JSON.stringify({username: username, password: password})
             })
             .then(checkHttpStatus)
             .then(parseJSON)
@@ -76,9 +77,9 @@ export function loginUser(email, password, redirect="/") {
     }
 }
 
-export function receiveProtectedData(data) {
+export function receiveCurCourses(data) {
     return {
-        type: 'RECEIVE_PROTECTED_DATA',
+        type: 'GET_CUR_COURSES',
         payload: {
             data: data
         }
@@ -91,11 +92,11 @@ export function fetchProtectedDataRequest() {
   }
 }
 
-export function fetchProtectedData(token) {
+export function fetchCurCourses(token) {
 
     return (dispatch, state) => {
         dispatch(fetchProtectedDataRequest());
-        return fetch('http://localhost:3000/api/login', {
+        return fetch(`${env}/api/v1/auth/courses/present`, {
                 credentials: 'include',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -104,7 +105,7 @@ export function fetchProtectedData(token) {
             .then(checkHttpStatus)
             .then(parseJSON)
             .then(response => {
-                dispatch(receiveProtectedData(response.data));
+                dispatch(receiveCurCourses(response.data));
             })
             .catch(error => {
                 if(error.response.status === 401) {

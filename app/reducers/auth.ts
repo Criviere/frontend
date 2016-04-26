@@ -1,12 +1,13 @@
-import {createReducer} from '../utils'
-import * as jwtDecode from 'jwt-decode'
+import {createReducer} from '../utils';
+import * as jwtDecode from 'jwt-decode';
 
 const initialState = {
     token: null,
     userName: null,
     isAuthenticated: false,
     isAuthenticating: false,
-    statusText: null
+    statusText: null,
+    courses: []
 };
 
 export default createReducer(initialState, {

@@ -16,5 +16,15 @@ export default createReducer(initialState, {
         return Object.assign({}, state, {
             'isFetching': true
         });
+    },
+    'GET_CUR_COURSES': (state, payload) => {
+      return Object.assign({}, state, {
+        'curCourses': payload.data
+      });
+    },
+    'GET_ALL_COURSES': (state, payload) => {
+      return Object.assign({}, state, {
+        'allCourses': payload.data
+      });
     }
 });
